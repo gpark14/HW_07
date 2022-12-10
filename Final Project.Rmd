@@ -1,0 +1,97 @@
+---
+title: "proposal.md"
+author: "Grayson Parker"
+date: "2022-12-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+```{r covid_data}
+
+library(rvest)
+
+covid_data = read_html("https://www.worldometers.info/coronavirus/country/us/")
+covid_df = covid_data %>% html_table()
+covid_df = covid_df[1]
+covid_df
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r population_data}
+library(rvest)
+pop = read_html("https://www.infoplease.com/us/cities/top-50-cities-us-population-and-rank")
+pop_df = pop %>% html_table()
+pop_df
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Introduction:
+•	The problem asserted in this project is the comparison between Covid-19 cases and the states where they are recorded. I then proceed to look at the correlation between the state’s geography, political stance, and the populations within these states’ largest cities. I started by finding online resources, such as Infoplease.com and worldometers.info, and then used those online sources to retrieve HTML table data to verify my hypothesized conclusions of what the data may show. 
+
+After observations and testing proceeded to then draw sourced conclusions from it. What we know about the data that is collected is the largest cities within the United States by population as well as the reported Covid Cases within each state, provided by the links above as well as the us census. Within this project we are trying to fill the gap of knowledge following the Covid-19 Virus and how it affected our population within certain target groups. This data can help show correlations between state funded quarantine efforts and the infection rates of those state residents.
+
+Knowing and understanding this data can prove beneficial in the future when it comes to Covid-19, infectious diseases we know of, and diseases we might face in the future. This data can assist with fighting health crisis in the future, as discussed in weforum’s article on the subject.
+
+The websites used to scrap the data was hard to find. I initially set out to use corporations such as the CDC, WHO, and NYT (New York Times). These two websites and many more blocked the ability to scrap data off of their websites, so the websites used were not ideal. In saying that I can attest that the data is accurate when comparing to the other websites data. The data table for the individual US cities was sourced from a U.S. Census Bureau pool taken in 2020, and the Covid cases from each state was sourced by 18 different studies and accounts from the CDC, WHO, and HHS (Department of Health and Human Services). 
+
+ I assume they made it hard to scrap from to prevent other companies from taking clicks and views away from their websites. This is speculation, but I felt I should explain my thought process.
+ 
+ Some of the questions I hope to get answered with the use of this scraped data are: 
+•	Will I see deaths rates that are higher in cities with populations over a set sample size? 
+o	How many cities within each state have a population that is at or above one million residents?
+•	What Programs were in place that either added to or decreased these numbers in these populations?
+•	Is there any correlation between the number of Covid cases/Covid deaths and the most current leaning political climate within each state?
+
+
+Methods and Materials:
+I collected my data from a few online websites. I collected my population data from a website labeled: https://www.infoplease.com/us/cities/top-50-cities-us-population-and-rank
+The online resource I used to retrieve the Covid-19 data was a website labeled:
+https://www.worldometers.info/coronavirus/country/us/
+Both of these data sources were retrieved using Rvest and RSelenium HTML scraping. Both the websites I used for my data had HTML tables that I used to build an R dataframe within this integrated development environment (IDE). I would Inspect the elements of each site to see if the data that was listed was in an HTML table format. After importing this scraped data, I then used R formatting to clean up the tables to be more legible for this presentation. 
+
+
+Results: 
+Some of the findings that I got while collecting this data are the largest population sizes of all the cities within the United States. This showed that the largest cities mostly reside on the east and west coast being New York, Los Angeles, Chicago, and Houston rounding out the top four based on data collected on the website by the US 2020 Census. I then received the total Covid-19 data for the United States which showed the total number of Covid cases that have been reported which is shown to currently be 100,625,493. The deaths resulting from these reported cases tally 1,105,546. And the total cases that have had patients recover tally at 98,124,036. I also retrieved Covid data for the each of the fifty US states. These show the most Covid Cases being reported in California, Texas, and Florida in that respective order. With the number of total deaths also following the same trend within the states. 
+
+
+
+
+
+
+
+
+Discussion: 
+Within my findings I was able to retrieve the data needed to make a few sourced conclusions. These help provide answers for some but not all my questions I sought out to answer. From these finding I was able to make conclusions regarding my population-based questions. While some of the questions I prompted required more statistical context that I was unable to retrieve to have a completely accurate conclusion, so assumptions were made.
+
+The first statistics I found for population size helped provide the first pieces of context for my prompts. I now understood which cities had the biggest populations. This allowed me to then look at the population density of these cities compared to the size of the city and the state the city resides in. This data showed that nine of the top fifteen cities in the country were in the top three of States with the most Covid deaths. With Texas and California leading the way with five and three of the top 15 cities respectively. From these finding we can safely conclude that these cities having such dense populations have had a large effect on the amount of covid cases reported and the deaths that resulted from these reported cases.
+
+The other conclusion I was able to make were that all ten of the US cities that have over a million residents are in states that fall into the top five in terms of Covid Deaths. With the only exceptions being Chicago and Phoenix, whose states comes in at N0.8 and NO.11 respectively. By comparing this with other sources (i.e. https://www.nytimes.com/2020/11/12/us/coronavirus-crisis-united-states.html) not only were large cities heavily affected by Covid but even small cities such as Minot N.D. were affected with the most cases per capita in the country. Along with these smaller cities heavily affected per capita rates of infection include Norton County, Kansas, Sioux Falls, S.D., and a city in Wisconsin which at one time during the pandemic was averaging about 700 cases per day. 
+
+Among these small cities we can see that they mostly reside in heavily republican voting states. This is a trend that is not as notable within larger cities as most larger cities lean to vote more democratic regardless of the total leaning of the states they reside. For example, Texas is a Republican leaning state while inner city districts of Houston have voted overwhelmingly Democratic the last few elections. And while Texas does fall within the top group of Covid Deaths it is topped only by California which tends to vote Democratically the past few cycles. So, it is hard to truly decipher the correlation between the political leanings and the cases the states record. A possible avenue to view them however could be from some of the smaller Republican leaning states compared to same size Democratic states but more data would be needed than I was able to collect to make a conclusion on that hypothesis. 
+
+In Finality we can determine that this data shows a direct correlation between the population size and density of cities and their states and the number of deaths that resulted from this Covid- 19 Outbreak. 
+
+Citations:
+
+“How Data Can Help Fight a Health Crisis like the Coronavirus.” World Economic Forum, https://www.weforum.org/agenda/2020/03/role-data-fight-coronavirus-epidemic/. 
+
+“United States.” Worldometer, https://www.worldometers.info/coronavirus/country/us/. 
+
+“Top 50 Cities in the U.S. by Population and Rank.” Infoplease, Infoplease, https://www.infoplease.com/us/cities/top-50-cities-us-population-and-rank. 
+
+“United States Covid-19 Cases and Deaths by State over Time - Archived.” Centers for Disease Control and Prevention, Centers for Disease Control and Prevention, https://data.cdc.gov/Case-Surveillance/United-States-COVID-19-Cases-and-Deaths-by-State-o/9mfq-cb36. 
+“United States of America: Who Coronavirus Disease (Covid-19) Dashboard with Vaccination Data.” World Health Organization, World Health Organization, https://covid19.who.int/region/amro/country/us. 
+
+Covid in the U.S.: Latest Maps, Case and Death Counts - the New York Times. https://www.nytimes.com/interactive/2021/us/covid-cases.html. 
+
+Steven ShepardSenior campaigns and elections editor12:52 a.m., et al. “Live Election Results: The 2020 Presidential Race.” POLITICO, https://www.politico.com/2020-election/results/president/. 

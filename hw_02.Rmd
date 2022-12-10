@@ -1,0 +1,19 @@
+Corrections
+#1
+mtcars[mtcars$cyl <- 6]
+mtcars[1:3,]
+mtcars[mtcars$cyl == 8, ]
+mtcars[mtcars$cyl == 4 | 6, ]
+
+#2
+There is no stored data for the "x" variable 
+Also, NA has logical type and logical vectors are recycled to the same length as the vector being subset
+
+#3
+Subsetting a data frame with one vector behaves the same as subsetting a list of columns. mtcars[1:15] returns a data frame containing the first 15 columns of the dataset. mtcars has only 11 columns, thus the index is out of bounds which gives an error. mtcars[1:15, ]is subsetted with two vectors, which allows 2d subsetting to kick in, and the first index will refer to rows
+
+#4
+I kept receiving no output or bash syntax error. I tried to email about the issue but did not get a reply back
+
+#5
+Car Road Test file not founnd

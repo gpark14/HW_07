@@ -1,0 +1,18 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+My name is Grayson Parker
+I am  junior at Louisiana State University
+I am majoring in biological science 
+```
+
+
+```{bash}
+
+```
+
+
+```{bash}
